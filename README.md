@@ -34,6 +34,13 @@ track_metadata_tbl %>%select(artist_name,release, title,year)%>%filter(year >= 1
 track_metadata_tbl %>%select(title, duration) %>%
   # Mutate columns
   mutate(duration_minutes = duration / 60)
+  
+   # Select columns starting with artist
+  select(starts_with("artist"))
+
+
+  # Select columns ending with id
+  select(ends_with("id"))
 
 # Disconnect from Spark
 spark_disconnect(sc = spark_conn)

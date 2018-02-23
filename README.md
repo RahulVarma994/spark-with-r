@@ -30,6 +30,10 @@ tryCatch({
   error = print
 # Manipulate the track metadata
 track_metadata_tbl %>%select(artist_name,release, title,year)%>%filter(year >= 1960 , year < 1970)%>%arrange(artist_name, desc(year),  title)
+# Manipulate the track metadata
+track_metadata_tbl %>%select(title, duration) %>%
+  # Mutate columns
+  mutate(duration_minutes = duration / 60)
 
 # Disconnect from Spark
 spark_disconnect(sc = spark_conn)

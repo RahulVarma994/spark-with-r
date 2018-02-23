@@ -12,7 +12,13 @@ str(track_metadata)
 track_metadata_tbl <- copy_to(spark_conn, track_metadata)
 # track_metadata_tbl has been pre-defined
 track_metadata_tbl
+# Print 5 rows, all columns
+print(track_metadata_tbl, n = 5, width = Inf)
 
+# Examine structure of tibble
+str(track_metadata_tbl)
+# Examine structure of data
+glimpse(track_metadata_tbl)
 # Manipulate the track metadata
 track_metadata_tbl %>% select("artist_name","release", "title","year")
  

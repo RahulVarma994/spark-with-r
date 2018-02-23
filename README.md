@@ -47,6 +47,9 @@ track_metadata_tbl %>%select(title, duration) %>%
 
   # Select columns matching ti.?t
   select(matches("ti.?t"))
+  
+  # Only return rows with distinct artist_name
+ distinct(artist_name)
 
 # Disconnect from Spark
 spark_disconnect(sc = spark_conn)

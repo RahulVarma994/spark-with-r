@@ -50,6 +50,9 @@ track_metadata_tbl %>%select(title, duration) %>%
   
   # Only return rows with distinct artist_name
  distinct(artist_name)
-
+ # Count the artist_name values
+ track_metadata_tbl %>% count(artist_name ,sort = TRUE)  %>% top_n(20 )
+ 
+***compute() to compute the result and store it in a Spark data frame.***
 # Disconnect from Spark
 spark_disconnect(sc = spark_conn)

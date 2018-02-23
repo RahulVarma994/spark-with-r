@@ -1,4 +1,4 @@
-# spark-with-r
+# spark-with-r this package uses dplyr functions
 install sparklyr package 
 # Load sparklyr
 library(sparklyr)
@@ -41,6 +41,12 @@ track_metadata_tbl %>%select(title, duration) %>%
 
   # Select columns ending with id
   select(ends_with("id"))
+  
+    # Select columns containing ti
+  select(matches("ti"))
+
+  # Select columns matching ti.?t
+  select(matches("ti.?t"))
 
 # Disconnect from Spark
 spark_disconnect(sc = spark_conn)
